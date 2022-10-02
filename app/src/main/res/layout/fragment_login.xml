@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_4"
+    tools:context=".fragment.LoginFragment">
+
+    <TextView
+        android:id="@+id/tvLoginIntro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Welcome To"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLoginHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_header"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLoginIntro" />
+
+    <View
+        android:id="@+id/vLoginDivider"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/color_1"
+        app:layout_constraintEnd_toEndOf="@+id/tvLoginHeader"
+        app:layout_constraintStart_toStartOf="@+id/tvLoginHeader"
+        app:layout_constraintTop_toBottomOf="@+id/tvLoginHeader" />
+
+    <TextView
+        android:id="@+id/tvLoginEmailHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="Email"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vLoginDivider" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="@id/tvLoginEmailHeader"
+        app:layout_constraintStart_toStartOf="@+id/tvLoginEmailHeader"
+        app:layout_constraintTop_toBottomOf="@+id/tvLoginEmailHeader"
+        app:startIconDrawable="@drawable/ic_alternate_email">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietLoginEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="Enter email:"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLoginPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tilLoginEmail"
+        app:layout_constraintStart_toStartOf="@+id/tilLoginEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tilLoginEmail" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilLoginPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:endIconMode="password_toggle"
+        app:errorEnabled="true"
+        app:layout_constraintEnd_toEndOf="@+id/tvLoginPassword"
+        app:layout_constraintStart_toStartOf="@+id/tvLoginPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tvLoginPassword"
+        app:startIconDrawable="@drawable/ic_lock">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tietLoginPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="Enter password:"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvLoginForget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Forget password?"
+        android:textAlignment="center"
+        android:textColor="@color/color_2"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tilLoginPassword"
+        app:layout_constraintStart_toStartOf="@+id/tilLoginPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tilLoginPassword" />
+
+    <Button
+        android:id="@+id/btnLoginConfirm"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_1"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="@+id/tilLoginPassword"
+        app:layout_constraintStart_toStartOf="@+id/tilLoginPassword"
+        app:layout_constraintTop_toBottomOf="@+id/tvLoginForget" />
+
+    <TextView
+        android:id="@+id/tvNotYetHeader"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Don't have an account? Create now"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnLoginConfirm"
+        app:layout_constraintStart_toStartOf="@+id/btnLoginConfirm"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoginConfirm" />
+
+    <Button
+        android:id="@+id/btnLoginSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/color_1"
+        android:text="Sign Up now"
+        app:layout_constraintEnd_toEndOf="@+id/tvNotYetHeader"
+        app:layout_constraintStart_toStartOf="@+id/tvNotYetHeader"
+        app:layout_constraintTop_toBottomOf="@+id/tvNotYetHeader" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
