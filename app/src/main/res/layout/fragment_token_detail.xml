@@ -67,18 +67,32 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/tvTokenDetailPriceDefault"
+                    android:id="@+id/tvTokenDetailSymbol"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1 ETH"
+                    android:text="Symbol"
                     android:textSize="16sp" />
 
-                <TextView
-                    android:id="@+id/tvTokenDetailPriceValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="NZ$292929"
-                    android:textSize="16sp" />
+                <RelativeLayout
+                    android:id="@+id/rlTokenDetailPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/tvTokenDetailDollar1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$" />
+
+                    <TextView
+                        android:id="@+id/tvTokenDetailPriceValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_toRightOf="@+id/tvTokenDetailDollar1"
+                        android:text="0.00"
+                        android:textSize="16sp" />
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/tvTokenDetailPriceRate"
@@ -162,35 +176,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vTokenDetailHolderDivider" />
 
-        <TableLayout
-            android:id="@+id/tlTokenDetailCirculatingSup"
+        <RelativeLayout
+            android:id="@+id/rlTokenDetailCirculatingSup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:stretchColumns="*"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTokenDetailCirculatingSup">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvTokenDetailDollar2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$" />
 
-                <TextView
-                    android:id="@+id/tvTokenDetailCirculatingSupValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvTokenDetailCirculatingSupRate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-            </TableRow>
-
-        </TableLayout>
+            <TextView
+                android:id="@+id/tvTokenDetailCirculatingSupValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf="@id/tvTokenDetailDollar2"
+                android:text="0.00" />
+        </RelativeLayout>
 
         <View
             android:id="@+id/vTokenDetailCirculatingSuppDivider"
@@ -198,11 +205,12 @@
             android:layout_height="3dp"
             android:background="@color/color_1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tlTokenDetailCirculatingSup" />
+            app:layout_constraintTop_toBottomOf="@+id/rlTokenDetailCirculatingSup" />
 
         <TextView
-            android:id="@+id/tvTokenDetailMarketCap"
+            android:id="@+id/tvTokenDetailMarketCap24"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -213,34 +221,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vTokenDetailCirculatingSuppDivider" />
 
-        <TableLayout
-            android:id="@+id/tlTokenDetailMarketCap"
+        <RelativeLayout
+            android:id="@+id/rlTokenDetailMarketCap24"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:stretchColumns="*"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTokenDetailMarketCap">
+            app:layout_constraintTop_toBottomOf="@+id/tvTokenDetailMarketCap24">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvTokenDetailDollar3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$" />
 
-                <TextView
-                    android:id="@+id/tvTokenDetailMarketCapValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvTokenDetailMarketCapRate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-            </TableRow>
-        </TableLayout>
+            <TextView
+                android:id="@+id/tvTokenDetailMarketCap24Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf="@id/tvTokenDetailDollar3"
+                android:text="0.00" />
+        </RelativeLayout>
 
         <View
             android:id="@+id/vTokenDetailMarketCapDivider"
@@ -248,8 +250,9 @@
             android:layout_height="3dp"
             android:background="@color/color_1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tlTokenDetailMarketCap" />
+            app:layout_constraintTop_toBottomOf="@+id/rlTokenDetailMarketCap24" />
 
         <TextView
             android:id="@+id/tvTokenDetailVolume"
@@ -263,34 +266,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/vTokenDetailMarketCapDivider" />
 
-        <TableLayout
-            android:id="@+id/tlTokenDetailVolume"
+        <RelativeLayout
+            android:id="@+id/rlTokenDetailMarketVolume"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:stretchColumns="*"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTokenDetailVolume">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/tvTokenDetailDollar4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$" />
 
-                <TextView
-                    android:id="@+id/tvTokenDetailVolumeValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/tvTokenDetailVolumeRate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-            </TableRow>
-        </TableLayout>
+            <TextView
+                android:id="@+id/tvTokenDetailVolumeValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf="@id/tvTokenDetailDollar4"
+                android:text="0.00" />
+        </RelativeLayout>
 
         <View
             android:id="@+id/vTokenDetailVolumeDIvider"
@@ -298,8 +295,9 @@
             android:layout_height="3dp"
             android:background="@color/color_1"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tlTokenDetailVolume" />
+            app:layout_constraintTop_toBottomOf="@+id/rlTokenDetailMarketVolume" />
 
         <TextView
             android:id="@+id/tvTokenDetailSocial"
@@ -325,22 +323,11 @@
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <ImageView
-                    android:id="@+id/imTokenDetailSocialTwitter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialReddit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
-
-                <ImageView
-                    android:id="@+id/imTokenDetailSocialTelegram"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_alternate_email" />
@@ -352,13 +339,37 @@
                     android:src="@drawable/ic_alternate_email" />
 
                 <ImageView
+                    android:id="@+id/imTokenDetailSocialLinkedin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_alternate_email" />
+
+                <ImageView
                     android:id="@+id/imTokenDetailSocialDiscord"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_alternate_email" />
 
                 <ImageView
-                    android:id="@+id/imTokenDetailSocialLinkedin"
+                    android:id="@+id/imTokenDetailSocialTwitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_alternate_email" />
+
+                <ImageView
+                    android:id="@+id/imTokenDetailSocialTelegram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_alternate_email" />
+
+                <ImageView
+                    android:id="@+id/imTokenDetailSocialCoingecko"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_alternate_email" />
+
+                <ImageView
+                    android:id="@+id/imTokenDetailSocialWebsite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_alternate_email" />
