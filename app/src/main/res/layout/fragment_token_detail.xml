@@ -13,24 +13,30 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp">
 
-        <TextView
-            android:id="@+id/tvTokenDetailHeader"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Token"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/ivTokenDetail"
+        <RelativeLayout
+            android:id="@+id/rlTokenDetailHeader"
             android:layout_width="0dp"
-            android:layout_height="150dp"
-            android:src="@drawable/ic_coin"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTokenDetailHeader" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivTokenDetail"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_coin" />
+
+            <TextView
+                android:id="@+id/tvTokenDetailHeader"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf="@id/ivTokenDetail"
+                android:gravity="center_vertical"
+                android:text="Token"
+                android:textSize="24sp" />
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tvTokenDetailOverview"
@@ -41,7 +47,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivTokenDetail" />
+            app:layout_constraintTop_toBottomOf="@+id/rlTokenDetailHeader" />
 
         <TextView
             android:id="@+id/tvTokenDetailPriceHeader"
@@ -330,49 +336,49 @@
                     android:id="@+id/imTokenDetailSocialReddit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:src="@drawable/ic_reddit" />
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialFacebook"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:src="@drawable/ic_facebook" />
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialLinkedin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:src="@drawable/ic_linkedin" />
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialDiscord"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:src="@drawable/ic_discord" />
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialTwitter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:src="@drawable/ic_twitter" />
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialTelegram"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:src="@drawable/ic_telegram" />
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialCoingecko"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_coingecko" />
 
                 <ImageView
                     android:id="@+id/imTokenDetailSocialWebsite"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_alternate_email" />
+                    android:src="@drawable/ic_website" />
             </TableRow>
         </TableLayout>
 

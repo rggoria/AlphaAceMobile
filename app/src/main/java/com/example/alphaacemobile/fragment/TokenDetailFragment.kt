@@ -1,9 +1,13 @@
 package com.example.alphaacemobile.fragment
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -20,6 +24,7 @@ import com.example.alphaacemobile.R
 import com.example.alphaacemobile.databinding.FragmentTokenDetailBinding
 import com.example.alphaacemobile.model.HomeTopModel
 import org.json.JSONObject
+import java.util.concurrent.Executors
 
 class TokenDetailFragment : Fragment() {
 
@@ -68,6 +73,7 @@ class TokenDetailFragment : Fragment() {
                         val curr_prc = jo.getString("curr_prc").toString()
                         val cir_supp = jo.getString("cir_supp").toString()
                         val total_vol = jo.getString("total_vol").toString()
+                        val token_img = jo.getString("token_img").toString()
                         val price_24h = jo.getString("price_24h").toDouble()
                         val symbol = jo.getString("symbol").toString().uppercase()
                         val reddit_link = jo.getString("reddit_link").toString()
@@ -84,6 +90,7 @@ class TokenDetailFragment : Fragment() {
                         Log.d("tk_price", curr_prc)
                         Log.d("cir_supp", cir_supp)
                         Log.d("total_vol", total_vol)
+                        Log.d("token_img", token_img)
                         Log.d("price_24h", price_24h.toString())
                         Log.d("reddit_link", reddit_link)
                         Log.d("facebook_link", facebook_link)
@@ -101,6 +108,43 @@ class TokenDetailFragment : Fragment() {
                         val vCirculatingSup = binding.tvTokenDetailCirculatingSupValue
                         val vTotalVol = binding.tvTokenDetailVolumeValue
                         val vMarketCap24 = binding.tvTokenDetailMarketCap24Value
+
+                        // Imageview
+                        // Declaring executor to parse the URL
+                        val executor = Executors.newSingleThreadExecutor()
+
+                        // Once the executor parses the URL
+                        // and receives the image, handler will load it
+                        // in the ImageView
+                        val handler = Handler(Looper.getMainLooper())
+
+                        // Initializing the image
+                        var image: Bitmap? = null
+
+                        // Only for Background process (can take time depending on the Internet speed)
+                        executor.execute {
+
+                            // Image URL
+                            val imageURL = token_img
+
+                            // Tries to get the image and post it in the ImageView
+                            // with the help of Handler
+                            try {
+                                val `in` = java.net.URL(imageURL).openStream()
+                                image = BitmapFactory.decodeStream(`in`)
+
+                                // Only for making changes in UI
+                                handler.post {
+                                    binding.ivTokenDetail.setImageBitmap(image)
+                                }
+                            }
+
+                            // If the URL doesnot point to
+                            // image or any other kind of failure
+                            catch (e: Exception) {
+                                e.printStackTrace()
+                            }
+                        }
 
                         // Setting up data
                         vSymbol.text = "$symbol"
@@ -192,7 +236,7 @@ class TokenDetailFragment : Fragment() {
                             binding.imTokenDetailSocialWebsite.visibility =View.VISIBLE
                             binding.imTokenDetailSocialWebsite.setOnClickListener {
                                 Toast.makeText(requireActivity(),"Website",Toast.LENGTH_SHORT).show()
-                                val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse(website))
+                                val urlIntent = Intent(Intent.ACTION_VIEW, Uri.parse(website.trim()))
                                 startActivity(urlIntent)
                             }
                         }
