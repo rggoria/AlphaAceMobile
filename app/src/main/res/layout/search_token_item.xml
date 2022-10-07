@@ -1,59 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="30dp"
-    android:stretchColumns="*">
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="4dp">
 
-
-    <TableRow
+    <!--on below line we are creating
+        a linear layout for grid view item-->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/border">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvSearchRank"
-            android:layout_width="20dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="1" />
-
-        <RelativeLayout
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/ivSearchImage"
-                android:layout_width="20dp"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/ic_coin" />
-
-            <TextView
-                android:id="@+id/tvSearchName"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_toRightOf="@+id/ivSearchImage"
-                android:gravity="center"
-                android:text="TextView"
-                android:textAlignment="textStart"
-                tools:ignore="RtlCompat" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tvSearchPrice"
-            android:layout_width="50dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="TextView" />
-
+        <!--on below line we are creating
+            a simple image view-->
         <ImageView
-            android:id="@+id/ivSearchFavorite"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/ic_coin" />
+            android:id="@+id/idIVCourse"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:padding="5dp"
+            android:src="@mipmap/ic_launcher" />
 
-    </TableRow>
-</TableLayout>
+        <!--on below line we are creating
+            a simple text view-->
+        <TextView
+            android:id="@+id/idTVCourse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:padding="4dp"
+            android:text="@string/app_name"
+            android:textAlignment="textStart"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
